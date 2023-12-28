@@ -1,27 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div :class="paintingsStore.theme === 'dark' ? 'app__container--dark' : 'app__container'">
+    <HeaderVue />
+    <Filter />
+    <paintings-list />
+    <pagination-array />
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent } from "vue";
+import PaintingsList from "./components/Paintings.vue";
+import PaginationArray from "./components/Pagination/PaginationArray.vue";
+import Filter from "./components/Filter/Filter.vue";
+import HeaderVue from "./components/Header/Header.vue";
+import usePaintingsStore from "./store/paintingsStore";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      paintingsStore: usePaintingsStore(),
+    };
+  },
   components: {
-    HelloWorld,
+    HeaderVue,
+    Filter,
+    PaintingsList,
+    PaginationArray,
+  },
+  mounted() {
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", this.paintingsStore.theme);
+    } else {
+      this.paintingsStore.theme = localStorage.getItem("theme") || "";
+    }
   },
 });
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

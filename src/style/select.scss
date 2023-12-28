@@ -1,0 +1,147 @@
+.select__body {
+  margin-right: 20px;
+  z-index: 10;
+}
+
+.select__default {
+  width: 233px;
+  padding: 15px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.select__default--visible {
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.select__image {
+  max-width: 5px;
+}
+
+.select__options {
+  max-width: 263px;
+  max-height: 298px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  background-color: #fff;
+  border-radius: 0 0 8px 8px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 10;
+}
+
+.select__options::-webkit-scrollbar {
+  width: 5px;
+}
+
+.select__options::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1); 
+  border-radius: 10px;
+}
+
+.select__options::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+}
+
+.select__options--visible {
+  border: 1px solid #000;
+  border-top: none;
+}
+
+.select__options--dark {
+  border: 1px solid #fff;
+  border-top: none;
+}
+
+.select__option{
+  max-width: 233px;
+  padding: 10px 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  white-space: nowrap;
+}
+
+.select__option:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.select__hidden {
+  display: none;
+}
+
+.select__default--dark {
+  background: #0C0C0C;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.select__option--dark {
+  background-color: #0C0C0C;
+  color: #fff;
+}
+
+.select__option--dark:hover {
+  background-color: #fff;
+  color: #0C0C0C;
+}
+
+@media (max-width: 1120px) {
+  .select__default{
+    max-width: 188px;
+  }
+
+  .select__option{
+    max-width: 168px;
+  }
+}
+
+@media (max-width: 960px) {
+  .select__default{
+    max-width: 128px;
+  }
+
+  .select__option{
+    max-width: 113px;
+  }
+}
+
+@media (max-width: 720px){
+  .select__body{
+    width: 280px;
+    margin: 0 0 15px 0;
+  }
+
+  .select__default{
+    min-width: 248px;
+  }
+
+  .select__default--visible{
+    position: relative;
+  }
+
+  .select__options{
+    max-width: 280px;
+  }
+
+  .select__option {
+    max-width: 280px;
+  }
+}
