@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import usePaintingsStore from "@/store/paintingsStore";
+import usePaintingsStore from "../../store/paintingsStore";
 import CustomInput from "./CustomInput.vue";
 
 export default defineComponent({

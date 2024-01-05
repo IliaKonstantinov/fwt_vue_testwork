@@ -1,9 +1,11 @@
 <template>
   <div class="paintings__container">
     <h1 v-if="paintingsStore.paintings.length == 0">Идет загрузка списка картин...</h1>
-    <div class="paintings__item"
-      v-else v-for="painting in paintingsStore.paintings"
-      :key=painting.id
+    <div
+      class="paintings__item"
+      v-else
+      v-for="painting in paintingsStore.paintings"
+      :key="painting.id"
     >
       <img
         className="paintings__image"
@@ -11,22 +13,18 @@
         alt="Изображение картины"
       />
       <div className="paintings__descr">
-        <h2 className="paintings__title">{{painting.name}}</h2>
+        <h2 className="paintings__title">{{ painting.name }}</h2>
         <p className="paintings__string">
-          <span className="paintings__bald">
-            Author:
-          </span>
-          {{setAuthor(painting.authorId)}}
+          <span className="paintings__bald"> Author: </span>
+          {{ setAuthor(painting.authorId) }}
         </p>
         <p className="paintings__string">
           <span className="paintings__bald">Created: </span>
-          {{painting.created}}
+          {{ painting.created }}
         </p>
         <p className="paintings__string">
-          <span className="paintings__bald">
-            Location:
-          </span>
-          {{setLocation(painting.locationId)}}
+          <span className="paintings__bald"> Location: </span>
+          {{ setLocation(painting.locationId) }}
         </p>
       </div>
     </div>
@@ -34,18 +32,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import usePaintingsStore from '../store/paintingsStore';
+import { defineComponent } from "vue";
+import usePaintingsStore from "../store/paintingsStore";
 
 export default defineComponent({
-  name: 'PaintingsList',
+  name: "PaintingsList",
   data() {
     return {
       paintingsStore: usePaintingsStore(),
     };
   },
   methods: {
-    setAuthor(authorId:number) {
+    setAuthor(authorId: number) {
       let author = null as string | null;
       for (let i = 0; i < this.paintingsStore.authors.length; i += 1) {
         if (this.paintingsStore.authors[i].id === authorId) {
@@ -54,7 +52,7 @@ export default defineComponent({
       }
       return author;
     },
-    setLocation(locationId:number) {
+    setLocation(locationId: number) {
       let location = null as string | null;
       for (let i = 0; i < this.paintingsStore.locations.length; i += 1) {
         if (this.paintingsStore.locations[i].id === locationId) {

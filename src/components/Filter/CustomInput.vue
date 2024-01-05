@@ -38,8 +38,8 @@
 </template>
 
 <script lang="ts">
-import usePaintingsStore from "@/store/paintingsStore";
 import { defineComponent } from "vue";
+import usePaintingsStore from "../../store/paintingsStore";
 import undoSvg from "./undoSvg.vue";
 
 export default defineComponent({
